@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "api/protobuf/user";
+
+message User {
+  string id = 1;
+  int32 score = 2;
+  int32 pos = 3;
+  bool isReady = 4;
+}
+
+message Ball {
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message GameData {
+  string roomId = 1;
+  User enemy = 2;
+  GameUpdate update = 3;
+}
+
+message GameUpdate {
+  oneof update {
+    Ball ball = 2;
+    bool isHit = 3;
+  }
+}
+
+message ActionResponse {
+  Status status = 1;
+  string message = 2;
+}
+
+enum Status {
+  OK = 0;
+  ERROR = 1;
+}
+
+service UserService {
+ rpc SetReady(User) returns (ActionResponse);
+ rpc CheckReady(RoomId) returns (ActionResponse);
+ rpc SendStatus(User) returns (ActionResponse);
+ rpc StreamGameData(google.protobuf.Empty) returns (stream GameData);
+}

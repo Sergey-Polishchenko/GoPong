@@ -1,0 +1,35 @@
+version: '3'
+
+tasks:
+  generate:
+    desc: Generate code from .proto
+    cmds:
+      - protoc --go_out=. --go-grpc_out=. api/protobuf/room/room.proto
+      - protoc --go_out=. --go-grpc_out=. api/protobuf/user/user.proto
+
+  build-client:
+    desc: Client-side build
+    cmds:
+      - go build -o cmd/client/client ./cmd/client
+
+  build-server:
+    desc: Server-side build
+    cmds:
+      - go build -o cmd/server/server ./cmd/server
+
+  build:
+    desc: Build client and server sides
+    deps:
+      - generate
+      - build-client
+      - build-server
+
+  run-client:
+    desc: Run client
+    cmds:
+      - ./cmd/client/client
+
+  run-server:
+    desc: Run server
+    cmds:
+      - ./cmd/server/server
