@@ -69,4 +69,8 @@ task build
 ## Frameworks
 - [gRPC](https://github.com/grpc/grpc-go) – enables efficient client-server communication.
 - [protobuf](https://github.com/protocolbuffers/protobuf) – used for data serialization to ensure lightweight and fast communication.
-- [Bubbletea](https://github.com/charmbracelet/bubbletea) – provides a modern terminal-based UI framework for the client.
+- [bubbletea](https://github.com/charmbracelet/bubbletea) – provides a modern terminal-based UI framework for the client.
+- [lipgloss](https://github.com/charmbracelet/lipgloss) - style definitions for nice terminal layouts.
+- [bubblezone](https://github.com/lrstanley/bubblezone) - mouse utility for bubbletea.
+- [bubbletea-overlay](https://github.com/rmhubbert/bubbletea-overlay) - creating and managing overlays and modal windows.
+- [godotenv](https://github.com/joho/godotenv) - load .env files package for managing environment variables.
