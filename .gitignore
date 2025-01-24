@@ -1,4 +1,9 @@
 # MacOS crap
 .DS_Store
 
+# Local .env
 .env
+
+# generated protobuf grpc files
+api/protobuf/room/*.go
+api/protobuf/user/*.go

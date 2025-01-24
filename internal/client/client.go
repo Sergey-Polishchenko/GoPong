@@ -4,6 +4,6 @@ type Client interface{}
 
 type client struct{}
 
-func NewClient() Client {
+func NewClient(host, port string) Client {
 	return &client{}
 }
