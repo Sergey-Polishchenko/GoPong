@@ -16,6 +16,10 @@ message Ball {
   int32 y = 2;
 }
 
+message RoomId {
+  string id = 1;
+}
+
 message GameData {
   string roomId = 1;
   User enemy = 2;
